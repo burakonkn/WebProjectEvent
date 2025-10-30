@@ -1,0 +1,86 @@
+@{
+    Layout = "_AdminLayout";
+}
+
+<header class="admin-header">
+    <i class="fa-solid fa-bars mobile-menu-toggle" id="mobile-menu-btn"></i>
+    <h1>Yeni Etkinlik Oluştur</h1>
+    <div class="admin-profile">
+        <span>Merhaba, Admin</span>
+        <div class="profile-icon"><i class="fa-solid fa-user"></i></div>
+    </div>
+</header>
+
+<section class="admin-content">
+    <div class="card">
+        <div class="card-header">
+            <h3>Etkinlik Bilgileri</h3>
+        </div>
+        <div class="card-body">
+            <form action="#" class="admin-form">
+                <div class="form-group">
+                    <label for="etkinlik-adi">Etkinlik Adı *</label>
+                    <input type="text" id="etkinlik-adi" placeholder="Örn: Teknoloji Zirvesi 2025" required>
+                </div>
+                <div class="form-group">
+                    <label for="aciklama">Açıklama</label>
+                    <textarea id="aciklama" placeholder="Etkinlik hakkında detaylı bilgi..."></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="kategori">Kategori *</label>
+                        <select id="kategori" required>
+                            <option value="">Kategori Seçin</option>
+                            <option value="teknoloji">Teknoloji</option>
+                            <option value="muzik">Müzik</option>
+                            <option value="sanat">Sanat</option>
+                            <option value="spor">Spor</option>
+                            <option value="egitim">Eğitim</option>
+                            <option value="is-kariyer">İş & Kariyer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="konum">Konum *</label>
+                        <input type="text" id="konum" placeholder="Örn: İstanbul Kongre Merkezi" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="tarih">Tarih *</label>
+                        <input type="date" id="tarih" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="saat">Saat Aralığı *</label>
+                        <input type="text" id="saat" placeholder="Örn: 09:00 - 18:00" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="limit">Katılımcı Limiti *</label>
+                        <input type="number" id="limit" placeholder="500" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fiyat">Fiyat (₺) *</label>
+                        <input type="number" id="fiyat" placeholder="250">
+                        <label for="ucretsiz" class="checkbox-label">
+                            <input type="checkbox" id="ucretsiz"> Etkinlik Ücretsiz
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gorsel">Etkinlik Görseli</label>
+                    <input type="file" id="gorsel" accept="image/*">
+                </div>
+
+                <div class="form-actions">
+                    <a href="admin-etkinlikler.html" class="btn btn-secondary">İptal</a>
+                    <button type="submit" class="btn btn-primary">Etkinliği Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

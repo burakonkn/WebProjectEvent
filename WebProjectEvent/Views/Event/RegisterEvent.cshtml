@@ -1,0 +1,96 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="back-link">
+        <a asp-controller="Event" asp-action="Index"><i class="fa-solid fa-arrow-left"></i> Etkinliklere Dön</a>
+    </div>
+
+    <div class="registration-page">
+        <aside class="event-summary">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fGNvbmZlcmVuY2V8ZW58MHx8fHwxNjE2MTU0NTYx&ixlib=rb-1.2.1&q=80&w=1080"
+                    alt="Teknoloji Zirvesi">
+                <span class="category-tag teknoloji">Teknoloji</span>
+            </div>
+            <div class="summary-content">
+                <h3>Teknoloji Zirvesi 2024</h3>
+                <p class="description">Geleceğin teknolojileri ve yenilikçi çözümler üzerine kapsamlı konferans. Sektör
+                    liderleri ve uzmanlarıyla bir araya gelin.</p>
+                <ul class="event-details">
+                    <li><i class="fa-solid fa-calendar-days"></i> 15 Haziran 2024</li>
+                    <li><i class="fa-solid fa-clock"></i> 09:00 - 18:00</li>
+                    <li><i class="fa-solid fa-location-dot"></i> İstanbul Kongre Merkezi</li>
+                    <li><i class="fa-solid fa-users"></i> 500 katılımcı</li>
+                </ul>
+                <div class="price-details">
+                    <div class="price-line">
+                        <span>Bilet Fiyatı</span>
+                        <span id="bilet-fiyati" data-price="250">₺250</span>
+                    </div>
+                    <div class="price-line">
+                        <span>Bilet Sayısı</span>
+                        <span id="bilet-sayisi-ozet">1</span>
+                    </div>
+                    <div class="price-line total">
+                        <span>Toplam</span>
+                        <span id="toplam-tutar">₺250</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="registration-form">
+            <h2>Kayıt Bilgileri</h2>
+            <p>Etkinliğe kaydolmak için lütfen aşağıdaki formu doldurun.</p>
+
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend><i class="fa-solid fa-user"></i> Kişisel Bilgiler</legend>
+                    <div class="form-group split-2">
+                        <div>
+                            <label for="ad">Ad *</label>
+                            <input type="text" id="ad" name="ad" required>
+                        </div>
+                        <div>
+                            <label for="soyad">Soyad *</label>
+                            <input type="text" id="soyad" name="soyad" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta *</label>
+                        <input type="email" id="email" name="email" placeholder="ornek@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefon">Telefon *</label>
+                        <input type="tel" id="telefon" name="telefon" placeholder="+90 555 123 4567" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fa-solid fa-ticket"></i> Bilet Bilgileri</legend>
+                    <div class="form-group">
+                        <label for="bilet-sayisi">Bilet Sayısı</label>
+                        <input type="number" id="bilet-sayisi" name="bilet-sayisi" value="1" min="1" max="10">
+                        <small>Maksimum 10 bilet alabilirsiniz.</small>
+                    </div>
+                </fieldset>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="kullanim-sartlari" name="kullanim-sartlari" required>
+                    <label for="kullanim-sartlari">Kullanım şartlarını ve gizlilik politikasını okudum ve kabul ediyorum
+                        *</label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i> Kaydı
+                        Tamamla</button>
+                    <a href="etkinlikler.html" class="btn-cancel">İptal</a>
+                </div>
+                <small class="form-info">Kaydınızı tamamladıktan sonra e-posta adresinize onay mesajı
+                    gönderilecektir.</small>
+            </form>
+        </section>
+    </div>
+</div>

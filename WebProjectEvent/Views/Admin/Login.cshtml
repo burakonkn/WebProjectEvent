@@ -1,3 +1,7 @@
+@{
+    Layout = null;
+}
+
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -5,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EtkinlikHub Admin - Giriş</title>
-    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="~/css/admin-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -27,10 +31,11 @@
                     <label for="password">Şifre</label>
                     <input type="password" id="password" name="password" required value="123456">
                 </div>
-                <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                <button asp-controller="Admin" asp-action="Event" type="submit" class="btn btn-primary">Giriş
+                    Yap</button>
             </form>
 
-            <a href="index.html" class="back-link">Ana Sayfaya Dön</a>
+            <a asp-controller="Home" asp-action="Index" class="back-link">Ana Sayfaya Dön</a>
         </div>
     </div>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıtlar - Admin</title>
-    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="~/css/admin-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -13,17 +13,20 @@
 
     <div class="admin-layout">
         <aside class="sidebar" id="admin-sidebar">
-            <a href="index.html" class="logo">
+            <a asp-controller="Admin" asp-action="Event" class="logo">
                 <i class="fa-solid fa-calendar-check"></i> Admin
             </a>
             <nav class="sidebar-nav">
                 <h4>Menü</h4>
                 <ul>
-                    <li><a href="admin-etkinlikler.html"><i class="fa-solid fa-calendar-days"></i> Etkinlikler</a></li>
-                    <li><a href="admin-kayitlar.html" class="active"><i class="fa-solid fa-users"></i> Kayıtlar</a></li>
+                    <li><a asp-controller="Admin" asp-action="Event"><i class="fa-solid fa-calendar-days"></i>
+                            Etkinlikler</a></li>
+                    <li><a asp-controller="Admin" asp-action="RegisterUser"><i class="fa-solid fa-users"></i>
+                            Kayıtlar</a></li>
                 </ul>
                 <ul class="logout">
-                    <li><a href="admin-login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Çıkış Yap</a>
+                    <li><a asp-controller="Admin" asp-action="Login"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i> Çıkış Yap</a>
                     </li>
                 </ul>
             </nav>
@@ -34,7 +37,7 @@
         </main>
     </div>
 
-    <script src="admin-script.js"></script>
+    <script src="~/js/admin-script.js"></script>
 </body>
 
 </html>

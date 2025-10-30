@@ -18,4 +18,14 @@ public class AdminController : Controller
     {
         return View();
     }
+
+    public ActionResult EventCreate()
+    {
+        return View();
+    }
+
+    public ActionResult EventEdit()
+    {
+        return View();
+    }
 }

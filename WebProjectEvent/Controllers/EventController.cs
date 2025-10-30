@@ -8,4 +8,9 @@ public class EventController : Controller
     {
         return View();
     }
+
+    public ActionResult RegisterEvent()
+    {
+        return View();
+    }
 }

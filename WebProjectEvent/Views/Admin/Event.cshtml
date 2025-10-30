@@ -14,7 +14,7 @@
 <section class="admin-content">
     <div class="content-header">
         <h2>Tüm Etkinlikler</h2>
-        <a href="admin-etkinlik-form.html" class="btn btn-primary btn-sm">
+        <a asp-controller="Admin" asp-action="EventCreate" class="btn btn-primary btn-sm">
             <i class="fa-solid fa-plus"></i> Yeni Etkinlik Ekle
         </a>
     </div>
@@ -40,7 +40,7 @@
                         <td>120 / 500</td>
                         <td>₺250</td>
                         <td class="actions">
-                            <a href="admin-etkinlik-form.html" class="btn btn-secondary btn-sm"><i
+                            <a asp-controller="Admin" asp-action="EventEdit" class="btn btn-secondary btn-sm"><i
                                     class="fa-solid fa-pencil"></i></a>
                             <a href="admin-kayitlar.html" class="btn btn-secondary btn-sm"><i
                                     class="fa-solid fa-users"></i></a>
