@@ -153,7 +153,6 @@ C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\rjsmrazo
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\scopedcss\bundle\WebProjectEvent.styles.css
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\wmdb4ojlxe-7zr3jhqbtk.gz
-C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\v15ex6q7i7-jfqdx3t2jt.gz
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\j9ytoz9i04-61n19gt1b8.gz
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\rid979a5il-pe0eikh1vr.gz
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\fh9ctsmoga-ucch6nvw2a.gz
@@ -227,3 +226,4 @@ C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\WebProje
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\WebProjectEvent.genruntimeconfig.cache
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\ref\WebProjectEvent.dll
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\WebProjectEvent.sourcelink.json
+C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\v15ex6q7i7-izmswivgtm.gz

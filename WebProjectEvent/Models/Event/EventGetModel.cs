@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebProjectEvent.Models;
 
-public class Event
+public class EventGetModel
 {
     public int EventId { get; set; }
     public string EventName { get; set; } = null!;
@@ -15,15 +15,12 @@ public class Event
     public int EventSubscriber { get; set; }
     public bool EventIsActive { get; set; }
     public bool EventIsHome { get; set; }
+    public string CategoryName { get; set; } = null!;
 
 
     // Bağlantı -->
 
     public int CategoryId { get; set; }
-    public Category Category { get; set; } = null!;
 
     public int LocationId { get; set; }
-    public Location Location { get; set; } = null!;
-
-    public List<UserEvent> UserEvents { get; set; } = new();
 }

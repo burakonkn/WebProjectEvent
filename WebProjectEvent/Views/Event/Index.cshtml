@@ -1,3 +1,4 @@
+@model List<EventGetModel>
 @{
     ViewData["Title"] = "Etkinlikler";
 }
@@ -39,141 +40,39 @@
 
 <section class="events-list">
     <div class="container">
-        <p class="event-count">9 etkinlik bulundu</p>
+        <p class="event-count">@Model.Count etkinlik bulundu</p>
 
         <div class="event-grid">
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fGNvbmZlcmVuY2V8ZW58MHx8fHwxNjE2MTU0NTYx&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Teknoloji Zirvesi">
-                    <span class="category-tag teknoloji">Teknoloji</span>
+            @foreach (var eventList in Model)
+            {
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="~/img/@eventList.EventImage" alt="@eventList.EventName">
+                        <span class="category-tag teknoloji">@eventList.CategoryName</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>@eventList.EventName</h3>
+                        <p class="description">@eventList.EventDescription</p>
+                        <ul class="event-details">
+                            <li><i class="fa-solid fa-calendar-days"></i> @eventList.EventDate</li>
+                            <li><i class="fa-solid fa-clock"></i> @eventList.EventTime</li>
+                            <li><i class="fa-solid fa-location-dot"></i> @eventList.EventLocation</li>
+                            <li><i class="fa-solid fa-users"></i> @eventList.EventSubscriber katılımcı</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        @if (eventList.EventPrice == 0)
+                        {
+                            <span class="price-free">Ücretsiz</span>
+                        }
+                        else
+                        {
+                            <span class="price">₺@eventList.EventPrice</span>
+                        }
+                        <a asp-controller="Event" asp-action="RegisterEvent" class="btn btn-primary">Kayıt Ol</a>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3>Teknoloji Zirvesi 2024</h3>
-                    <p class="description">Geleceğin teknolojileri ve yenilikçi çözümler üzerine kapsamlı konferans.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 15 Haziran 2024</li>
-                        <li><i class="fa-solid fa-clock"></i> 09:00 - 18:00</li>
-                        <li><i class="fa-solid fa-location-dot"></i> İstanbul Kongre Merkezi</li>
-                        <li><i class="fa-solid fa-users"></i> 500 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price">₺250</span>
-                    <a asp-controller="Event" asp-action="RegisterEvent" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG11c2ljJTIwZmVzdGl2YWx8ZW58MHx8fHwxNjE2MTU0NjI5&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Müzik Festivali">
-                    <span class="category-tag muzik">Müzik</span>
-                </div>
-                <div class="card-content">
-                    <h3>Müzik Festivali</h3>
-                    <p class="description">Yaz aylarının en büyük müzik festivali, 3 gün boyunca eğlence.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 20 Temmuz 2024</li>
-                        <li><i class="fa-solid fa-clock"></i> 18:00 - 23:00</li>
-                        <li><i class="fa-solid fa-location-dot"></i> İzmir Kültürpark</li>
-                        <li><i class="fa-solid fa-users"></i> 2000 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price">₺450</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGFydCUyMGV4aGliaXRpb258ZW58MHx8fHwxNjE2MTU0NjY4&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Sanat Sergisi">
-                    <span class="category-tag sanat">Sanat</span>
-                </div>
-                <div class="card-content">
-                    <h3>Sanat Sergisi</h3>
-                    <p class="description">Çağdaş sanat eserlerinin sergileneceği özel etkinlik.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 5 Ağustos 2024</li>
-                        <li><i class="fa-solid fa-clock"></i> 10:00 - 18:00</li>
-                        <li><i class="fa-solid fa-location-dot"></i> Ankara Sanat Galerisi</li>
-                        <li><i class="fa-solid fa-users"></i> 150 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price free">Ücretsiz</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fG5ldHdvcmtpbmclMjBldmVudHxlbnwwfHx8fDE2MTYxNTQ3MTA&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Startup Networking Gecesi">
-                    <span class="category-tag is-kariyer">İş & Kariyer</span>
-                </div>
-                <div class="card-content">
-                    <h3>Startup Networking Gecesi</h3>
-                    <p class="description">Girişimciler ve yatırımcılar için networking etkinliği.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 10 Haziran 2024</li>
-                        <li><i class="fa-solid fa-clock"></i> 18:00 - 22:00</li>
-                        <li><i class="fa-solid fa-location-dot"></i> İstanbul Startup Merkezi</li>
-                        <li><i class="fa-solid fa-users"></i> 200 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price">₺100</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1517836357463-d25afe027b62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHlvZ2F8ZW58MHx8fHwxNjE2MTU0NzQy&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Yoga & Meditasyon Kampı">
-                    <span class="category-tag spor">Spor</span>
-                </div>
-                <div class="card-content">
-                    <h3>Yoga & Meditasyon Kampı</h3>
-                    <p class="description">Doğayla iç içe 2 günlük yoga ve meditasyon kampı.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 25 Haziran 2024</li>
-                        <li><i class="fa-solid fa-clock"></i> 09:00 - 18:00</li>
-                        <li><i class="fa-solid fa-location-dot"></i> Antalya Kemer</li>
-                        <li><i class="fa-solid fa-users"></i> 50 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price">₺600</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGRpZ2l0YWwlMjBtYXJrZXRpbmclMjB3b3Jrc2hvcHxlbnwwfHx8fDE2MTYxNTQ3NzU&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Dijital Pazarlama Eğitimi">
-                    <span class="category-tag egitim">Eğitim</span>
-                </div>
-                <div class="card-content">
-                    <h3>Dijital Pazarlama Eğitimi</h3>
-                    <p class="description">Sosyal medya ve dijital pazarlama stratejileri üzerine workshop.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 8 Temmuz 2024</li>
-                        <li><i class="fa-solid fa-clock"></i> 13:00 - 17:00</li>
-                        <li><i class="fa-solid fa-location-dot"></i> Bursa Teknopark</li>
-                        <li><i class="fa-solid fa-users"></i> 100 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price">₺350</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
+            }
         </div>
     </div>
 </section>

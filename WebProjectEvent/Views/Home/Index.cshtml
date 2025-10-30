@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<EventGetModel>
+@{
     ViewData["Title"] = "Ana Sayfa";
 }
 
@@ -19,19 +20,19 @@
 <section class="stats">
     <div class="container stats-grid">
         <div class="stat-item">
-            <h3>1000+</h3>
+            <h3>@ViewData["EventCount"]</h3>
             <p>Etkinlik</p>
         </div>
         <div class="stat-item">
-            <h3>50K+</h3>
+            <h3>@ViewData["UserCount"]</h3>
             <p>Kullanıcı</p>
         </div>
         <div class="stat-item">
-            <h3>100+</h3>
+            <h3>@ViewData["CityCount"]</h3>
             <p>Şehir</p>
         </div>
         <div class="stat-item">
-            <h3>4.9</h3>
+            <h3>0</h3>
             <p>Değerlendirme</p>
         </div>
     </div>
@@ -43,68 +44,36 @@
         <p class="section-subtitle">En popüler ve ilgi çekici etkinlikleri keşfedin</p>
 
         <div class="event-grid">
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fGNvbmZlcmVuY2V8ZW58MHx8fHwxNjE2MTU0NTYx&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Teknoloji Zirvesi">
-                    <span class="category-tag teknoloji">Teknoloji</span>
+            @foreach (var eventList in Model)
+            {
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="~/img/@eventList.EventImage" alt="@eventList.EventName">
+                        <span class="category-tag teknoloji">@eventList.CategoryName</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>@eventList.EventName</h3>
+                        <p class="description">@eventList.EventDescription</p>
+                        <ul class="event-details">
+                            <li><i class="fa-solid fa-calendar-days"></i> @eventList.EventDate</li>
+                            <li><i class="fa-solid fa-clock"></i> @eventList.EventTime</li>
+                            <li><i class="fa-solid fa-location-dot"></i> @eventList.EventLocation</li>
+                            <li><i class="fa-solid fa-users"></i> @eventList.EventSubscriber katılımcı</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        @if (eventList.EventPrice == 0)
+                        {
+                            <span class="price-free">Ücretsiz</span>
+                        }
+                        else
+                        {
+                            <span class="price">₺@eventList.EventPrice</span>
+                        }
+                        <a asp-controller="Event" asp-action="RegisterEvent" class="btn btn-primary">Kayıt Ol</a>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3>Teknoloji Zirvesi 2024</h3>
-                    <p class="description">Geleceğin teknolojileri ve yenilikçi çözümler üzerine kapsamlı konferans.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 15 Haziran 2024</li>
-                        <li><i class="fa-solid fa-location-dot"></i> İstanbul Kongre Merkezi</li>
-                        <li><i class="fa-solid fa-users"></i> 500 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price">₺250</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG11c2ljJTIwZmVzdGl2YWx8ZW58MHx8fHwxNjE2MTU0NjI5&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Müzik Festivali">
-                    <span class="category-tag muzik">Müzik</span>
-                </div>
-                <div class="card-content">
-                    <h3>Müzik Festivali</h3>
-                    <p class="description">Yaz aylarının en büyük müzik festivali, 3 gün boyunca eğlence.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 20 Temmuz 2024</li>
-                        <li><i class="fa-solid fa-location-dot"></i> İzmir Kültürpark</li>
-                        <li><i class="fa-solid fa-users"></i> 2000 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price">₺450</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGFydCUyMGV4aGliaXRpb258ZW58MHx8fHwxNjE2MTU0NjY4&ixlib=rb-1.2.1&q=80&w=1080"
-                        alt="Sanat Sergisi">
-                    <span class="category-tag sanat">Sanat</span>
-                </div>
-                <div class="card-content">
-                    <h3>Sanat Sergisi</h3>
-                    <p class="description">Çağdaş sanat eserlerinin sergileneceği özel etkinlik.</p>
-                    <ul class="event-details">
-                        <li><i class="fa-solid fa-calendar-days"></i> 5 Ağustos 2024</li>
-                        <li><i class="fa-solid fa-location-dot"></i> Ankara Sanat Galerisi</li>
-                        <li><i class="fa-solid fa-users"></i> 150 katılımcı</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="price free">Ücretsiz</span>
-                    <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>

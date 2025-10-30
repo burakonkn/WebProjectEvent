@@ -489,8 +489,10 @@ footer h4 {
     color: var(--primary-color);
 }
 
-.price.free {
+.price-free {
     color: var(--green-free);
+    font-size: 1.3rem;
+    font-weight: 700;
 }
 
 
