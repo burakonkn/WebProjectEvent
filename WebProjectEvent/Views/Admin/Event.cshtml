@@ -1,0 +1,83 @@
+@{
+    Layout = "_AdminLayout";
+}
+
+<header class="admin-header">
+    <i class="fa-solid fa-bars mobile-menu-toggle" id="mobile-menu-btn"></i>
+    <h1>Etkinlik Yönetimi</h1>
+    <div class="admin-profile">
+        <span>Merhaba, Admin</span>
+        <div class="profile-icon"><i class="fa-solid fa-user"></i></div>
+    </div>
+</header>
+
+<section class="admin-content">
+    <div class="content-header">
+        <h2>Tüm Etkinlikler</h2>
+        <a href="admin-etkinlik-form.html" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-plus"></i> Yeni Etkinlik Ekle
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Etkinlik Adı</th>
+                        <th>Tarih</th>
+                        <th>Konum</th>
+                        <th>Kayıtlar</th>
+                        <th>Fiyat</th>
+                        <th>Eylemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Teknoloji Zirvesi 2024</td>
+                        <td>15 Haziran 2024</td>
+                        <td>İstanbul Kongre Merkezi</td>
+                        <td>120 / 500</td>
+                        <td>₺250</td>
+                        <td class="actions">
+                            <a href="admin-etkinlik-form.html" class="btn btn-secondary btn-sm"><i
+                                    class="fa-solid fa-pencil"></i></a>
+                            <a href="admin-kayitlar.html" class="btn btn-secondary btn-sm"><i
+                                    class="fa-solid fa-users"></i></a>
+                            <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Müzik Festivali</td>
+                        <td>20 Temmuz 2024</td>
+                        <td>İzmir Kültürpark</td>
+                        <td>850 / 2000</td>
+                        <td>₺450</td>
+                        <td class="actions">
+                            <a href="admin-etkinlik-form.html" class="btn btn-secondary btn-sm"><i
+                                    class="fa-solid fa-pencil"></i></a>
+                            <a href="admin-kayitlar.html" class="btn btn-secondary btn-sm"><i
+                                    class="fa-solid fa-users"></i></a>
+                            <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sanat Sergisi</td>
+                        <td>5 Ağustos 2024</td>
+                        <td>Ankara Sanat Galerisi</td>
+                        <td>75 / 150</td>
+                        <td style="color: var(--green-free);">Ücretsiz</td>
+                        <td class="actions">
+                            <a href="admin-etkinlik-form.html" class="btn btn-secondary btn-sm"><i
+                                    class="fa-solid fa-pencil"></i></a>
+                            <a href="admin-kayitlar.html" class="btn btn-secondary btn-sm"><i
+                                    class="fa-solid fa-users"></i></a>
+                            <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>

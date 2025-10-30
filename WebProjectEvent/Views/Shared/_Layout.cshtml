@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EtkinlikHub - Ana Sayfa</title>
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-calendar-check"></i> EtkinlikHub
+            </a>
+            <nav>
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index" class="active">Ana Sayfa</a></li>
+                    <li><a asp-controller="Event" asp-action="Index">Etkinlikler</a></li>
+                </ul>
+            </nav>
+            <a asp-controller="Event" asp-action="Index" class="btn btn-primary">Etkinlik Ara</a>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="container footer-top">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-calendar-check"></i> EtkinlikHub
+                </a>
+                <p>En iyi etkinlikleri keşfedin ve unutulmaz deneyimler yaşayın. Türkiye'nin önde gelen etkinlik
+                    platformu.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                    <li><a asp-controller="Event" asp-action="Index">Etkinlikler</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>İletişim</h4>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> info@etkinlikhub.com</li>
+                    <li><i class="fa-solid fa-phone"></i> +90 542 499 4369</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Bursa, Türkiye</li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Bizi Takip Edin</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 EtkinlikHub. Tüm hakları saklıdır.</p>
+                <div>
+                    <a href="#">Gizlilik Politikası</a>
+                    <a href="#">Kullanım Şartları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/js/script.js"></script>
+</body>
+
+</html>
