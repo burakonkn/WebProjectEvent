@@ -21,48 +21,56 @@
             <form method="post" class="admin-form" enctype="multipart/form-data" asp-controller="Admin"
                 asp-action="EventCreate">
                 <div class="form-group">
-                    <label asp-for="EventName">Etkinlik Adı *</label>
+                    <label asp-for="EventName"></label>
                     <input asp-for="EventName" placeholder="Örn: Teknoloji Zirvesi 2025" required>
+                    <span asp-validation-for="EventName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="EventDescription">Açıklama</label>
+                    <label asp-for="EventDescription"></label>
                     <textarea asp-for="EventDescription" placeholder="Etkinlik hakkında detaylı bilgi..."></textarea>
+                    <span asp-validation-for="EventDescription" class="text-danger"></span>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group">
-                        <label asp-for="CategoryId">Kategori *</label>
+                        <label asp-for="CategoryId"></label>
                         <select asp-for="CategoryId" required asp-items="@ViewBag.Categories">
                             <option value="">Kategori Seçin</option>
                         </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="LocationId">Şehir *</label>
+                        <label asp-for="LocationId"></label>
                         <select asp-for="LocationId" required asp-items="@ViewBag.Locations">
                             <option value="">Şehir Seçin</option>
                         </select>
+                        <span asp-validation-for="LocationId" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group">
-                        <label asp-for="EventDate">Tarih *</label>
+                        <label asp-for="EventDate"></label>
                         <input asp-for="EventDate" required>
+                        <span asp-validation-for="EventDate" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="EventTime">Saat Aralığı *</label>
+                        <label asp-for="EventTime"></label>
                         <input asp-for="EventTime" placeholder="Örn: 09:00 - 18:00" required>
+                        <span asp-validation-for="EventTime" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group">
-                        <label asp-for="EventSubscriber">Katılımcı Limiti *</label>
+                        <label asp-for="EventSubscriber"></label>
                         <input asp-for="EventSubscriber" placeholder="500" required>
+                        <span asp-validation-for="EventSubscriber" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="EventPrice">Fiyat (₺) *</label>
+                        <label asp-for="EventPrice"></label>
                         <input asp-for="EventPrice" placeholder="250">
+                        <span asp-validation-for="EventPrice" class="text-danger"></span>
                         @* <label for="ucretsiz" class="checkbox-label">
                             <input type="checkbox" id="ucretsiz"> Etkinlik Ücretsiz
                         </label> *@
@@ -71,18 +79,20 @@
 
                 <div class="form-grid">
                     <div class="form-group">
-                        <label asp-for="EventImage">Etkinlik Görseli</label>
+                        <label asp-for="EventImage"></label>
                         <input asp-for="EventImage" accept="image/*">
+                        <span asp-validation-for="EventImage" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="EventLocation">Konum *</label>
+                        <label asp-for="EventLocation"></label>
                         <input asp-for="EventLocation" placeholder="Örn: İstanbul Kongre Merkezi" required>
+                        <span asp-validation-for="EventLocation" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-grid">
                     <div class="form-group">
                         <label asp-for="EventIsActive" class="checkbox-label">
-                            Aktif Mi? <input asp-for="EventIsActive">
+                            Aktif Mi?<input asp-for="EventIsActive">
                         </label>
                     </div>
                     <div class="form-group">
@@ -101,4 +111,6 @@
     </div>
 </section>
 
-@* Javascript ile yapabileceğiniz şeyler hayal ettiğinizden bile daha fazladır. *@
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

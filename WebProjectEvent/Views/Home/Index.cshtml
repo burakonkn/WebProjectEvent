@@ -12,7 +12,7 @@
         <div class="hero-buttons">
             <a asp-controller="Event" asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-search"></i>
                 Etkinlik Ara</a>
-            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Nasıl Çalışır?</a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" id="ScroolGet">Nasıl Çalışır?</a>
         </div>
     </div>
 </section>
@@ -31,16 +31,16 @@
             <h3>@ViewData["CityCount"]</h3>
             <p>Şehir</p>
         </div>
-        <div class="stat-item">
+        @* <div class="stat-item">
             <h3>0</h3>
             <p>Değerlendirme</p>
-        </div>
+        </div> *@
     </div>
 </section>
 
 <section class="featured-events">
     <div class="container">
-        <h2>Bu Hafta Sonu Neler Var?</h2>
+        <h2>Size Uygun En Yakın Tarihli Etkinlikler?</h2>
         <p class="section-subtitle">En popüler ve ilgi çekici etkinlikleri keşfedin</p>
 
         <div class="event-grid">
@@ -70,7 +70,8 @@
                         {
                             <span class="price">₺@eventList.EventPrice</span>
                         }
-                        <a asp-controller="Event" asp-action="RegisterEvent" class="btn btn-primary">Kayıt Ol</a>
+                        <a asp-controller="Event" asp-action="RegisterEvent" class="btn btn-primary" id="ScroolPost">Kayıt
+                            Ol</a>
                     </div>
                 </div>
             }
@@ -115,3 +116,28 @@
         <a href="etkinlikler.html" class="btn">Hemen Başlayın</a>
     </div>
 </section>
+
+@section Scripts {
+    <script>
+        // Sayfa yüklendiğinde bu kodun çalışmasını bekle
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // 1. Tıklanacak butonu ID'sine göre bul
+            var button = document.getElementById('ScroolGet');
+
+            // 2. Butona tıklama olayını dinle
+            button.addEventListener('click', function (event) {
+                // (Eğer 'a' etiketi kullandıysan) sayfanın atlamasını engelle
+                event.preventDefault();
+
+                // 3. Hedef bölümü ID'sine göre bul
+                var hedefBolum = document.getElementById('ScroolPost');
+
+                // 4. Hedef bölümün olduğu yere yumuşak bir şekilde kaydır
+                hedefBolum.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+}

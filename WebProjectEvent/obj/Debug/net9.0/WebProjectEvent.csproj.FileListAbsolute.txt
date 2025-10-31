@@ -226,4 +226,4 @@ C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\WebProje
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\WebProjectEvent.genruntimeconfig.cache
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\ref\WebProjectEvent.dll
 C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\WebProjectEvent.sourcelink.json
-C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\v15ex6q7i7-izmswivgtm.gz
+C:\Users\Burak\Desktop\WebProjectEvent\WebProjectEvent\obj\Debug\net9.0\compressed\v15ex6q7i7-aoxr6letyb.gz

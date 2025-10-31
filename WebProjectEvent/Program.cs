@@ -30,6 +30,18 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
+    name: "EventList",
+    pattern: "event/{url?}",
+    defaults: new { controller = "Event", action = "Index" })
+    .WithStaticAssets();
+
+app.MapControllerRoute(
+    name: "Event",
+    pattern: "adminevent/{id?}",
+    defaults: new { controller = "Admin", action = "Event" })
+    .WithStaticAssets();
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();

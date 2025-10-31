@@ -2,8 +2,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebProjectEvent.Models;
 
-public class AdminEventCreateModel
+public class AdminEventEditModel
 {
+    public int EventId { get; set; }
+
+
     [Display(Name = "Etkinlik Adı *")]
     [Required(ErrorMessage = "Lütfen Etkinlik Adı alanını doldurunuz!")]
     [StringLength(100)]
@@ -19,7 +22,7 @@ public class AdminEventCreateModel
     public double EventPrice { get; set; }
 
     [Display(Name = "Etkinlik Görseli *")]
-    public IFormFile EventImage { get; set; } = null!;
+    public IFormFile? EventImage { get; set; }
 
     public string? EventImageName { get; set; }
 

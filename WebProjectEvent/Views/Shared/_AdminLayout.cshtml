@@ -1,3 +1,7 @@
+@{
+    var activePage = ViewBag.AdminActivePage as string ?? "";
+}
+
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -5,7 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıtlar - Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/admin-style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -19,9 +25,12 @@
             <nav class="sidebar-nav">
                 <h4>Menü</h4>
                 <ul>
-                    <li><a asp-controller="Admin" asp-action="Event"><i class="fa-solid fa-calendar-days"></i>
+                    <li><a asp-controller="Admin" asp-action="Event"
+                            class="@(activePage == "AdminEtkinlikler" ? "active" : "")"><i
+                                class="fa-solid fa-calendar-days"></i>
                             Etkinlikler</a></li>
-                    <li><a asp-controller="Admin" asp-action="RegisterUser"><i class="fa-solid fa-users"></i>
+                    <li><a asp-controller="Admin" asp-action="RegisterUser"
+                            class="@(activePage == "AdminKayitlar" ? "active" : "")"><i class="fa-solid fa-users"></i>
                             Kayıtlar</a></li>
                 </ul>
                 <ul class="logout">
@@ -35,7 +44,22 @@
         <main class="admin-main">
             @RenderBody()
         </main>
+
+
+
     </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 
     <script src="~/js/admin-script.js"></script>
 </body>

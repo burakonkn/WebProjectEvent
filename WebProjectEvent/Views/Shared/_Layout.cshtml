@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var activePage = ViewBag.ActivePage as string ?? "";
+}
+
+<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -21,8 +25,10 @@
             </a>
             <nav>
                 <ul>
-                    <li><a asp-controller="Home" asp-action="Index" class="active">Ana Sayfa</a></li>
-                    <li><a asp-controller="Event" asp-action="Index">Etkinlikler</a></li>
+                    <li><a asp-controller="Home" asp-action="Index"
+                            class="@(activePage == "Ana Sayfa" ? "active" : "")">Ana Sayfa</a></li>
+                    <li><a asp-controller="Event" asp-action="Index"
+                            class="@(activePage == "Etkinlikler" ? "active" : "")">Etkinlikler</a></li>
                 </ul>
             </nav>
             <a asp-controller="Event" asp-action="Index" class="btn btn-primary">Etkinlik Ara</a>
@@ -36,7 +42,7 @@
     <footer>
         <div class="container footer-top">
             <div class="footer-about">
-                <a href="index.html" class="logo">
+                <a asp-controller="Home" asp-action="Index" class="logo">
                     <i class="fa-solid fa-calendar-check"></i> EtkinlikHub
                 </a>
                 <p>En iyi etkinlikleri keşfedin ve unutulmaz deneyimler yaşayın. Türkiye'nin önde gelen etkinlik
@@ -79,6 +85,8 @@
             </div>
         </div>
     </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
 
     <script src="~/js/script.js"></script>
 </body>

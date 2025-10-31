@@ -7,34 +7,25 @@
     <div class="container">
         <h1>Etkinlikleri Keşfedin</h1>
         <p>Size en uygun etkinliği bulun ve unutulmaz deneyimler yaşayın</p>
-        <div class="search-bar">
-            <div class="search-input">
-                <i class="fa-solid fa-search"></i>
-                <input type="text" placeholder="Etkinlik ara...">
+        <form method="get">
+            <div class="search-bar">
+                <div class="search-input">
+                    <i class="fa-solid fa-search"></i>
+                    <input name="q" type="text" placeholder="Etkinlik ara..." value="@ViewData["q"]">
+                </div>
+                <select name="category" asp-items="@ViewBag.Categories">
+                    <option value="">Tüm Kategoriler</option>
+                </select>
+                <select name="location" asp-items="@ViewBag.Locations">
+                    <option value="">Tüm Şehirler</option>
+                </select>
+                <div>
+                    <button type="submit" class="btn btn-secondary">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
             </div>
-            <select>
-                <option value="">Tüm Kategoriler</option>
-                <option value="teknoloji">Teknoloji</option>
-                <option value="muzik">Müzik</option>
-                <option value="sanat">Sanat</option>
-                <option value="is">İş & Kariyer</option>
-                <option value="spor">Spor</option>
-                <option value="egitim">Eğitim</option>
-            </select>
-            <select>
-                <option value="">Tüm Şehirler</option>
-                <option value="istanbul">İstanbul</option>
-                <option value="ankara">Ankara</option>
-                <option value="izmir">İzmir</option>
-                <option value="bursa">Bursa</option>
-                <option value="antalya">Antalya</option>
-            </select>
-            <div>
-                <button type="submit" class="btn btn-secondary">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-        </div>
+        </form>
     </div>
 </section>
 

@@ -16,6 +16,7 @@ public class EventGetModel
     public bool EventIsActive { get; set; }
     public bool EventIsHome { get; set; }
     public string CategoryName { get; set; } = null!;
+    public string LocationName { get; set; } = null!;
 
 
     // Bağlantı -->

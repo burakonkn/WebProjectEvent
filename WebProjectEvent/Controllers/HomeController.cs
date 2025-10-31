@@ -24,10 +24,11 @@ public class HomeController : Controller
             EventPrice = x.EventPrice,
             EventTime = x.EventTime,
             CategoryName = x.Category.CategoryName
-        }).Take(3).ToList();
+        }).OrderBy(x => x.EventDate).Take(3).ToList();
         ViewData["EventCount"] = _context.Events.Count();
         ViewData["UserCount"] = _context.Users.Count();
         ViewData["CityCount"] = _context.Locations.Count();
+        ViewBag.ActivePage = "Ana Sayfa";
         return View(entity);
     }
 }

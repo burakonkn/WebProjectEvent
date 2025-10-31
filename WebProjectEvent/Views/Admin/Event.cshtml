@@ -50,11 +50,15 @@
                                 <td>₺@adminEntity.EventPrice</td>
                             }
                             <td class="actions">
-                                <a asp-controller="Admin" asp-action="EventEdit" class="btn btn-secondary btn-sm"><i
-                                        class="fa-solid fa-pencil"></i></a>
+                                <a asp-controller="Admin" asp-action="EventEdit" asp-route-id="@adminEntity.EventId"
+                                    class="btn btn-secondary btn-sm"><i class="fa-solid fa-pencil"></i></a>
                                 <a href="admin-kayitlar.html" class="btn btn-secondary btn-sm"><i
                                         class="fa-solid fa-users"></i></a>
-                                <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal" data-id="@adminEntity.EventId"> <i
+                                        class="fa-solid fa-trash"></i>
+                                    Sil
+                                </button>
                             </td>
                         </tr>
                     }
@@ -64,3 +68,41 @@
     </div>
 
 </section>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Silme Onayı</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bu kaydı kalıcı olarak silmek istediğinize emin misiniz? Bu işlem geri alınamaz.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+
+                <form asp-controller="Admin" asp-action="EventDelete" method="post" id="deleteModalForm">
+                    <input type="hidden" name="id" id="deleteEventIdInput" />
+                    <button type="submit" class="btn btn-danger">Evet, Kalıcı Olarak Sil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteModal = document.getElementById('deleteModal');
+
+            // show.bs.modal olayı, Bootstrap 5'e aittir
+            deleteModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var eventId = button.getAttribute('data-id');
+                var modalInput = deleteModal.querySelector('#deleteEventIdInput');
+                modalInput.value = eventId;
+            });
+        });
+    </script>
+}
